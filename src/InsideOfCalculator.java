@@ -1,3 +1,8 @@
+import com.orangebook.calculate.Calculator;
+import com.orangebook.calculate.Divider;
+import com.orangebook.calculate.Multiplicator;
+import com.orangebook.calculate.Substractor;
+import com.orangebook.calculate.Sumator;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -8,7 +13,7 @@ public class InsideOfCalculator {
     private static int firstOperand;
     private static int secondOperand;
     private static String operator;
-    private static int result;
+    private static double result;
 
     public int getFirstOperand() {
         return firstOperand;
@@ -34,11 +39,11 @@ public class InsideOfCalculator {
         this.operator = operator;
     }
 
-    public int getResult() {
+    public double getResult() {
         return result;
     }
 
-    public void setResult(int result) {
+    public void setResult(double result) {
         this.result = result;
     }
 
@@ -72,8 +77,34 @@ public class InsideOfCalculator {
         scanner.nextLine();
         operator = scanner.nextLine();
         System.out.println("You enter " + operator + "\n");
-        CalculateService calculateService = new CalculateService();
-        calculateService.math();
+
+        Calculator calculator = null;
+        calculator = chooseAction(calculator);
+        setResult(calculator.calculate(getFirstOperand(), getSecondOperand()));
+        result();
+
+    }
+
+    private Calculator chooseAction(Calculator calculator) {
+        System.out.println(operator.hashCode());
+        System.out.println("+".hashCode());
+        switch (operator) {
+            case "+":
+                calculator = new Sumator();
+                break;
+            case "-":
+                calculator = new Substractor();
+                break;
+            case "*":
+                calculator = new Multiplicator();
+                break;
+            case "/":
+                calculator = new Divider();
+                break;
+            default:
+                calculator = null;
+        }
+        return calculator;
     }
 
     void result() {
