@@ -71,7 +71,7 @@ public class InsideOfCalculator {
                 "if you want 'divided' this operands - enter 'divide' or character '/'");
         scanner.nextLine();
         operator = scanner.nextLine();
-        System.out.println("Yura you choose - " + operator + "\n");
+        System.out.println("You enter " + operator + "\n");
         CalculateService calculateService = new CalculateService();
         calculateService.math();
     }

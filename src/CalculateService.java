@@ -44,6 +44,5 @@ public class CalculateService {
             return generalResult = a / b;
         }
     }
-
 }
 
