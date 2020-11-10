@@ -8,7 +8,7 @@ public class InsideOfCalculator {
     private static int firstOperand;
     private static int secondOperand;
     private static String operator;
-    private static int result;
+    private static double result;
 
     public int getFirstOperand() {
         return firstOperand;
@@ -34,11 +34,11 @@ public class InsideOfCalculator {
         this.operator = operator;
     }
 
-    public int getResult() {
+    public double getResult() {
         return result;
     }
 
-    public void setResult(int result) {
+    public void setResult(double result) {
         this.result = result;
     }
 
@@ -77,11 +77,11 @@ public class InsideOfCalculator {
     }
 
     void result() {
-        if (result == 545451687) {
+        if (result == 0.545451687) {
             System.out.println("Try again!\n");
             enterNumber();
         } else {
-            System.out.println("result is - " + result + "\n");
+            System.out.println("result is " + result + "\n");
             System.out.println("Nice work Yura!");
         }
     }

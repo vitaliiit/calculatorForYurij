@@ -1,11 +1,10 @@
 public class CalculateService {
 
-    int generalResult;
+    double generalResult;
 
     InsideOfCalculator insideOfCalculator = new InsideOfCalculator();
 
     void math() {
-
         switch (insideOfCalculator.getOperator()) {
             case "add", "+":
                 add(insideOfCalculator.getFirstOperand(), insideOfCalculator.getSecondOperand());
@@ -24,22 +23,22 @@ public class CalculateService {
         insideOfCalculator.result();
     }
 
-    private int add(int a, int b) {
+    private double add(double a, double b) {
         return generalResult = a + b;
     }
 
-    private int subtract(int a, int b) {
+    private double subtract(double a, double b) {
         return generalResult = a - b;
     }
 
-    private int multiply(int a, int b) {
+    private double multiply(double a, double b) {
         return generalResult = a * b;
     }
 
-    private int divide(int a, int b) {
+    private double divide(double a, double b) {
         if (b == 0) {
             System.out.println("Danger! Yura - you try divide to 0. Don't do this please!\n");
-            return generalResult = 545451687;
+            return generalResult = 545451687.0;
         } else {
             return generalResult = a / b;
         }
