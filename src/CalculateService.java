@@ -1,46 +1,45 @@
 public class CalculateService {
 
-    double generalResult;
+    private double operatingVariable;
 
-    InsideOfCalculator insideOfCalculator = new InsideOfCalculator();
-
-    void math() {
-        switch (insideOfCalculator.getOperator()) {
+    void math(String operation, int firstOperand, int secondOperand) {
+        switch (operation) {
             case "add", "+":
-                add(insideOfCalculator.getFirstOperand(), insideOfCalculator.getSecondOperand());
+                add(firstOperand, secondOperand);
                 break;
             case "subtract", "-":
-                subtract(insideOfCalculator.getFirstOperand(), insideOfCalculator.getSecondOperand());
+                subtract(firstOperand, secondOperand);
                 break;
             case "multiply", "*":
-                multiply(insideOfCalculator.getFirstOperand(), insideOfCalculator.getSecondOperand());
+                multiply(firstOperand, secondOperand);
                 break;
             case "divide", "/":
-                divide(insideOfCalculator.getFirstOperand(), insideOfCalculator.getSecondOperand());
+                divide(firstOperand, secondOperand);
                 break;
         }
-        insideOfCalculator.setResult(generalResult);
-        insideOfCalculator.result();
+        InsideOfCalculator insideOfCalculator = new InsideOfCalculator();
+        insideOfCalculator.setResult(operatingVariable);
+        insideOfCalculator.printResult();
     }
 
     private double add(double a, double b) {
-        return generalResult = a + b;
+        return operatingVariable = a + b;
     }
 
     private double subtract(double a, double b) {
-        return generalResult = a - b;
+        return operatingVariable = a - b;
     }
 
     private double multiply(double a, double b) {
-        return generalResult = a * b;
+        return operatingVariable = a * b;
     }
 
     private double divide(double a, double b) {
-        if (b == 0) {
+        if (b == 0.0) {
             System.out.println("Danger! Yura - you try divide to 0. Don't do this please!\n");
-            return generalResult = 545451687.0;
+            return operatingVariable = 545451687.0;
         } else {
-            return generalResult = a / b;
+            return operatingVariable = a / b;
         }
     }
 }
