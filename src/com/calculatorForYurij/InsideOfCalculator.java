@@ -1,3 +1,5 @@
+package com.calculatorForYurij;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -5,10 +7,10 @@ public class InsideOfCalculator {
 
     Scanner scanner = new Scanner(System.in);
 
-    private static int firstOperand;
-    private static int secondOperand;
-    private static String operator;
-    private static int result;
+    private int firstOperand;
+    private int secondOperand;
+    private String operator;
+    private double result;
 
     public int getFirstOperand() {
         return firstOperand;
@@ -34,11 +36,11 @@ public class InsideOfCalculator {
         this.operator = operator;
     }
 
-    public int getResult() {
+    public double getResult() {
         return result;
     }
 
-    public void setResult(int result) {
+    public void setResult(double result) {
         this.result = result;
     }
 
@@ -72,16 +74,16 @@ public class InsideOfCalculator {
         scanner.nextLine();
         operator = scanner.nextLine();
         System.out.println("You enter " + operator + "\n");
-        CalculateService calculateService = new CalculateService();
-        calculateService.math();
+        MathService mathService = new MathService();
+        mathService.MathStuff(operator,firstOperand,secondOperand);
     }
 
-    void result() {
-        if (result == 545451687) {
+    void printResult() {
+        if (result == 545451687.0) {
             System.out.println("Try again!\n");
             enterNumber();
         } else {
-            System.out.println("result is - " + result + "\n");
+            System.out.println("result is " + result + "\n");
             System.out.println("Nice work Yura!");
         }
     }
