@@ -1,3 +1,5 @@
+package com.calculatorForYurij;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -64,7 +66,6 @@ public class InsideOfCalculator {
     }
 
     void chooseOperator() {
-        CalculateService calculateService = new CalculateService();
         System.out.println("Yura what do you want todo of this operands?\n");
         System.out.println("if you want 'added' this operands - enter 'add' or character '+'\n" +
                 "if you want 'subtracted' this operands - enter 'subtract' or character '-'\n" +
@@ -73,7 +74,8 @@ public class InsideOfCalculator {
         scanner.nextLine();
         operator = scanner.nextLine();
         System.out.println("You enter " + operator + "\n");
-        calculateService.math(operator, firstOperand, secondOperand);
+        MathService mathService = new MathService();
+        mathService.MathStuff(operator,firstOperand,secondOperand);
     }
 
     void printResult() {
