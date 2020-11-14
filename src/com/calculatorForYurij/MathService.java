@@ -1,12 +1,11 @@
 package com.calculatorForYurij;
+import com.calculatorForYurij.exception.CalculatorException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MathService {
 
-    private double operatingVariable;
-
-    void MathStuff(String operator, double firstOperand, double secondOperand) {
+    double mathStuff(String operator, double firstOperand, double secondOperand) throws CalculatorException {
         Math math;
         Map<String, Math> myMapMaster = new HashMap<>();
 
@@ -16,9 +15,11 @@ public class MathService {
         myMapMaster.put("/", new Divided());
 
         math = myMapMaster.get(operator);
-        operatingVariable = math.mathOperation(firstOperand, secondOperand);
-        InsideOfCalculator insideOfCalculator = new InsideOfCalculator();
-        insideOfCalculator.setResult(operatingVariable);
-        insideOfCalculator.printResult();
+        try {
+            return  math.mathOperation(firstOperand, secondOperand);
+        } catch (RuntimeException e) {
+            throw new CalculatorException(e);
+        }
+
     }
 }
