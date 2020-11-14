@@ -1,8 +1,4 @@
 import com.orangebook.calculate.Calculator;
-import com.orangebook.calculate.Divider;
-import com.orangebook.calculate.Multiplicator;
-import com.orangebook.calculate.Substractor;
-import com.orangebook.calculate.Sumator;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -90,16 +86,16 @@ public class InsideOfCalculator {
         System.out.println("+".hashCode());
         switch (operator) {
             case "+":
-                calculator = new Sumator();
+                calculator = (a, b) -> a + b;
                 break;
             case "-":
-                calculator = new Substractor();
+                calculator = (a, b) -> a - b;
                 break;
             case "*":
-                calculator = new Multiplicator();
+                calculator = (a, b) -> a * b;
                 break;
             case "/":
-                calculator = new Divider();
+                calculator = (a, b) -> a / b;
                 break;
             default:
                 calculator = null;
